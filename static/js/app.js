@@ -3,7 +3,7 @@
 var $tbody = document.querySelector("tbody");
 // from index.html id=datetime, id = "filter-btn"
 var $dateInput=document.querySelector("#datetime");
-var $searchButton=document.queryCommandValue("#filter-btn");
+var $searchButton = document.querySelector("#filter-btn");
 
 // add event listener to search button when button is clicked
 $searchButton.addEventListener("click", handleSearchButtonClick);
@@ -35,24 +35,22 @@ function renderTable() {
 }
 
 function handleSearchButtonClick() {
-	// trim the date to remove begining and ending spaces
-	var inputDate = $dateInput.value.trim();
-
-	// user input must match date/type of data in table data
-
-	// when user input data
-	if (inputDate.length != 0) {
-		tableData = data.filter(function(currentSighting){
-			var matchedDate = sighting.date;
-			return matchedDate === inputDate;
-		});
-	}
-	// no input, do nothing
-	else {
-		tableData = data;
-	}
-    renderTable();
+	 // Format the user's search by removing leading and trailing whitespace, lowercase the string
+	 var inputValue = $dateInput.value.trim().toLowerCase();
+		// when user input data
+		if (inputValue.length != 0) {
+			tableData = data.filter(function(currentSighting){
+				var matchedDate = currentSighting.datetime;
+				return matchedDate === inputValue;
+	});
 }
+// no input, do nothing
+		else {
+			tableData = data;
+}
+renderTable();
+}
+
 
 // render
 renderTable();
