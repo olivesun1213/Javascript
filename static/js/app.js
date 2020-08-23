@@ -37,7 +37,7 @@ function renderTable() {
 function handleSearchButtonClick() {
 	 // Format the user's search by removing leading and trailing whitespace, lowercase the string
 	 var inputValue = $dateInput.value.trim().toLowerCase();
-		// when user input data
+		// when user input data, check to see if the input data matches date data in existing data
 		if (inputValue.length != 0) {
 			tableData = data.filter(function(currentSighting){
 				var matchedDate = currentSighting.datetime;
