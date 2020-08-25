@@ -4,7 +4,7 @@ var tableData = data;
 
 // get input date and filter button
 var dateTime=d3.select("#datetime");
-var filterBtn=d3.select("#filter-btn")
+var filterBtn=d3.select("#filter-btn");
 
 //search by date
 dateTime.on("change",function(){
